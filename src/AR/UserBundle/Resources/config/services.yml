@@ -1,0 +1,4 @@
+services:
+#    ar_user.example:
+#        class: AR\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,11 @@
+ar_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ARUserBundle:Default:index }
+
+ar_user_index:
+    path:   /user/index
+    defaults: { _controller: ARUserBundle:User:index }
+    
+ar_user_view:
+    path:   /user/view/{id}
+    defaults: { _controller: ARUserBundle:User:view }
