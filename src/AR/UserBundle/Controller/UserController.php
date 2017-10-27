@@ -14,23 +14,28 @@ class UserController extends Controller
         
         $users = $em->getRepository('ARUserBundle:User')->findAll();
         
+        /*Muestra tdos los datos de usaurio sin formato 
         $res = 'Lista de usuarios <br />';
-        
         foreach ($users as $user) {
-            
-            $res .= 'Usuario: ' .$user->getNombre().'<br />';
-            
+        $res .= 'Usuario: ' .$user->getNombre().'<br />';
         }
-        
         return new Response($res);
+        ------------------------------------------------*/
+        
+        return $this->render('ARUserBundle:User:index.html.twig', array('users' => $users));
+        
     }
     
-    public function viewAction($id)
+    public function viewAction()
     {
-        $repository = $this->getDoctrine()->getRepository('ARUserBundle:User');
+        $em = $this->getDoctrine()->getManager();
         
-        $user = $repository->find($id);
-         
-        return new Response('Usuario: '.$user->getNombre(). ' Contraseña: '.$user->getPassword()); 
+        $users = $em->getRepository('ARUserBundle:User')->findAll();
+        
+         $res = 'Lista de usuarios <br />';
+        foreach ($users as $user) {
+        $res .= 'Usuario: ' .$user->getNombre().'<br />';
+        }
+        return new Response($res);
     }
 }

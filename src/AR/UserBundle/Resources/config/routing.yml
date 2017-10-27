@@ -7,5 +7,5 @@ ar_user_index:
     defaults: { _controller: ARUserBundle:User:index }
     
 ar_user_view:
-    path:   /user/view/{id}
+    path:   /user/view/
     defaults: { _controller: ARUserBundle:User:view }

@@ -1,0 +1,47 @@
+{% extends 'layout.html.twig' %}
+
+{% block body%}
+{{ parent() }}
+    <div class="container">
+        <div class="col-md-12">
+            <div class="page-header margin-none">
+                <h2 class="padding-none">Usuarios</h2>
+            </div>
+            <div class="table-responsive">
+                       <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                <th>Nombre</th>
+                                <Th>Contraseña</Th>
+                                <Th>Roles</Th>
+                                <Th>Acciones</Th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                    <tr>
+                                    <td>{{user.nombre}}</td>
+                                    <td>{{user.password}}</td>
+                                        <td>
+                                        {%if user.role == 'ROLE_ADMIN'%}
+                                        <strong>Administrador</strong>
+                                        {%elseif user.role == 'ROLE_USER'%}
+                                        <strong>Usuario</strong>
+                                        {%endif%}
+                                        </td>
+                                            <td class="actions">
+                                            <a href="#" class="btn btn-sm btn-info">Ver</a>
+                                            <a href="#" class="btn btn-sm btn-primary">Editar</a>
+                                            <a href="#" class="btn btn-sm btn-danger btn-delete">Borrar</a>
+                                            </td>
+                                    </tr>  
+                                {% endfor %}
+                        </tbody> 
+                    </table>
+            </div>
+        </div>
+    
+    </div>
+
+
+{% endblock %}
